@@ -1,19 +1,22 @@
-lunes, martes, miercoles = 2.00
-jueves, viernes =2.50
-sabado, domingo = 3.00
-precio = 0
-tiempocliente = int(input("Ingrese su tiempo en minutos: "))
-diacliente = str(input("Escriba el dia: "))
-if tiempocliente >= 5 :
-    if diacliente == lunes or martes or miercoles:
-        t= tiempocliente/60
-        precio= t * diacliente
-    if diacliente == jueves or viernes:
-        t= tiempocliente/60
-        precio= t * diacliente
-    if diacliente == sabado or domingo:
-        t = tiempocliente/60
-        precio = t* diacliente
-else :
-    print("No tienes deudas")
+import math
 
+tarifas = {
+    'lunes': 2.00,
+    'martes': 2.00,
+    'miercoles': 2.00,
+    'jueves': 2.50,
+    'viernes': 2.50,
+    'sabado': 3.00,
+    'domingo': 3.00
+}
+
+diacliente = input("Ingrese el día (lunes, martes, ..., domingo): ").lower()
+
+if diacliente in tarifas:
+    tarifa = tarifas[diacliente]
+    tiempocliente = int(input("Ingrese el tiempo en minutos: "))
+    tiempohoras = math.ceil(tiempocliente / 60)  #redondea al entero mas cercano
+    precio = tiempohoras * tarifa
+    print(f"El precio a pagar es de: {precio:.2f}.")
+else:
+    print("Ingrese nuevamente el dia.")
