@@ -10,7 +10,7 @@ tarifas = {
     'domingo': 3.00
 }
 
-diacliente = input("Ingrese el día (lunes, martes, ..., domingo): ").lower()
+diacliente = input("Ingrese el dia: ").lower()
 
 if diacliente in tarifas:
     tarifa = tarifas[diacliente]
